@@ -6,7 +6,7 @@ A PyTorch implementation of **Temporal Shift Module (TSM)** integrated into a Re
 
 ## Overview
 
-This project implements the [TSM paper](https://arxiv.org/abs/1811.08383) — a zero-parameter, zero-FLOPs technique that enables 2D CNNs to capture temporal information across video frames. By shifting a portion of channels along the temporal dimension, TSM allows a standard ResNet to reason about motion without the cost of 3D convolutions.
+This project implements the [TSM paper](https://arxiv.org/abs/1811.08383) a technique that allows 2D CNNs to capture temporal information across video frames. By shifting a portion of channels along the temporal dimension, TSM allows a standard ResNet to reason about motion without the cost of 3D convolutions.
 
 **Key results on UCF-101 (10-class subset):**
 
@@ -22,9 +22,9 @@ This project implements the [TSM paper](https://arxiv.org/abs/1811.08383) — a 
 
 The core idea is simple: before each residual block's first convolution, channels are **shifted in time**:
 
-- **Forward shift** — 1/8 of channels are shifted from frame `t+1` → `t` (look ahead)
-- **Backward shift** — 1/8 of channels are shifted from frame `t-1` → `t` (look back)
-- **No shift** — remaining 6/8 channels are unchanged
+- **Forward shift**: 1/8 of channels are shifted from frame `t+1` → `t` (look ahead)
+- **Backward shift**: 1/8 of channels are shifted from frame `t-1` → `t` (look back)
+- **No shift**: remaining 6/8 channels are unchanged
 
 This lets each frame "see" information from neighboring frames at zero additional cost.
 
@@ -66,7 +66,7 @@ model = TSMResNet(num_classes=10, n_segment=8, pretrained=True)
 
 ## Dataset
 
-**UCF-101** — a benchmark dataset of 101 human action categories from YouTube videos.
+**UCF-101**: a benchmark dataset of 101 human action categories from YouTube videos.
 
 - Source: [Kaggle – UCF101 Action Recognition](https://www.kaggle.com/datasets/matthewjansen/ucf101-action-recognition)
 - This notebook uses a **10-class subset** for training
@@ -173,7 +173,7 @@ The inference pipeline loads a trained checkpoint, samples 8 frames uniformly fr
 ## References
 
 - Lin, J., Gan, C., & Han, S. (2019). [TSM: Temporal Shift Module for Efficient Video Understanding](https://arxiv.org/abs/1811.08767). ICCV 2019.
-- [UCF101 Dataset](https://www.crcv.ucf.edu/data/UCF101.php) — University of Central Florida
+- [UCF101 Dataset](https://www.crcv.ucf.edu/data/UCF101.php): University of Central Florida
 - [torchvision ResNet](https://pytorch.org/vision/stable/models.html#torchvision.models.resnet18)
 
 ---
