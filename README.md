@@ -1,5 +1,4 @@
 # ResnetTSM Demo
-# ResNet-TSM: Video Action Recognition with Temporal Shift Module
 
 A PyTorch implementation of **Temporal Shift Module (TSM)** integrated into a ResNet-18 backbone for efficient video action recognition on the UCF-101 dataset.
 
